@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RadioTest {
 
     @Test
-    public void increaseChannal() {
+    void increaseChannal() {
         Radio radio = new Radio();
         radio.setCurrentChannal(5);
         radio.increaseChannel();
@@ -41,9 +41,9 @@ class RadioTest {
     @Test
     public void increaseVolumeFromMaxVolume() {
         Radio radio = new Radio();
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
         radio.increaseVolume();
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(100, radio.getCurrentVolume());
     }
 
     @Test
@@ -75,7 +75,7 @@ class RadioTest {
         Radio radio = new Radio();
         radio.setCurrentVolume(25);
         radio.increaseVolume();
-        assertEquals(10, radio.getCurrentVolume());
+        assertEquals(26, radio.getCurrentVolume());
     }
 
     @Test
@@ -83,7 +83,7 @@ class RadioTest {
         Radio radio = new Radio();
         radio.setCurrentVolume(25);
         radio.decreaseVolume();
-        assertEquals(9, radio.getCurrentVolume());
+        assertEquals(24, radio.getCurrentVolume());
     }
 
     @Test
@@ -101,6 +101,7 @@ class RadioTest {
         radio.decreaseChannel();
         assertEquals(8, radio.getCurrentChannal());
     }
+
     @Test
     public void previousChannelFromMinus() {
         Radio radio = new Radio();
