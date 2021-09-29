@@ -5,27 +5,31 @@ public class Radio {
     private int maxChannal = 9;
     private int minVolume = 0;
     private int maxVolume = 100;
-    private int currentVolume;
     private int currentChannal;
-
+    private int currentVolume;
 
     public Radio() {
-
     }
 
-
-    public Radio(int minChannal, int maxChannal, int minVolume, int maxVolume, int currentVolume, int currentChannal) {
-        this.minChannal = minChannal;
+    public Radio(int maxChannal) {
         this.maxChannal = maxChannal;
-        this.minVolume = minVolume;
+    }
+
+    public Radio(int currentChannal, int maxChannal) {
+        this.currentChannal = currentChannal;
+        this.maxChannal = maxChannal;
+    }
+
+    public Radio(int maxVolume, int minVolume, int maxChannal, int minChannal, int currentVolume, int currentChannal) {
         this.maxVolume = maxVolume;
+        this.minVolume = minVolume;
+        this.maxChannal = maxChannal;
+        this.minChannal = minChannal;
         this.currentVolume = currentVolume;
         this.currentChannal = currentChannal;
-
-
     }
 
-    public int getMinChannal(int minChannal) {
+    public int getMinChannal() {
         return minChannal;
     }
 
@@ -40,7 +44,6 @@ public class Radio {
     public void setMaxChannal(int maxChannal) {
         this.maxChannal = maxChannal;
     }
-
 
     public int getMinVolume() {
         return minVolume;
@@ -58,7 +61,6 @@ public class Radio {
         this.maxVolume = maxVolume;
     }
 
-
     public int getCurrentChannal() {
         return currentChannal;
     }
@@ -75,13 +77,12 @@ public class Radio {
         this.currentChannal = currentChannal;
     }
 
-
     public int getCurrentVolume() {
         return currentVolume;
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume >= maxVolume) {
+        if (currentVolume > maxVolume) {
             this.currentVolume = maxVolume;
             return;
         }
@@ -93,7 +94,7 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (currentVolume >= maxVolume) {
+        if (currentVolume == maxVolume) {
             return;
         }
         currentVolume++;
@@ -106,7 +107,7 @@ public class Radio {
         currentVolume--;
     }
 
-    public void increaseChannel() {
+    public void increaseChannal() {
         if (currentChannal == maxChannal) {
             this.currentChannal = minChannal;
             return;
@@ -114,11 +115,12 @@ public class Radio {
         currentChannal++;
     }
 
-    public void decreaseChannel() {
+    public void decreaseChannal() {
         if (currentChannal == minChannal) {
             this.currentChannal = maxChannal;
             return;
         }
         currentChannal--;
     }
+
 }
